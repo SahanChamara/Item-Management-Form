@@ -1,8 +1,9 @@
-package org.example.Model;
+package org.example.model;
 
 import java.util.Objects;
 
 public class Item {
+    private String itemId;
     private String itemName;
     private Integer qty;
     private Double price;
@@ -11,11 +12,20 @@ public class Item {
     public Item() {
     }
 
-    public Item(String itemName, Integer qty, Double price, String description) {
+    public Item(String itemId, String itemName, Integer qty, Double price, String description) {
+        this.itemId = itemId;
         this.itemName = itemName;
         this.qty = qty;
         this.price = price;
         this.description = description;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
     public String getItemName() {
@@ -53,7 +63,8 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "itemName='" + itemName + '\'' +
+                "itemId='" + itemId + '\'' +
+                ", itemName='" + itemName + '\'' +
                 ", qty=" + qty +
                 ", price=" + price +
                 ", description='" + description + '\'' +
@@ -64,11 +75,11 @@ public class Item {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemName, item.itemName) && Objects.equals(qty, item.qty) && Objects.equals(price, item.price) && Objects.equals(description, item.description);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(itemName, item.itemName) && Objects.equals(qty, item.qty) && Objects.equals(price, item.price) && Objects.equals(description, item.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemName, qty, price, description);
+        return Objects.hash(itemId, itemName, qty, price, description);
     }
 }

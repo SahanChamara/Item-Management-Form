@@ -1,4 +1,4 @@
-package org.example.Controller;
+package org.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HomeWindowFormController {
     public void btnAddItemOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/add_item_form.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/add_item_form.fxml"))));
         stage.show();
     }
 
