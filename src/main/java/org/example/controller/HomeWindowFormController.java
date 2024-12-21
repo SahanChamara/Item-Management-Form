@@ -14,10 +14,15 @@ public class HomeWindowFormController {
         stage.show();
     }
 
-    public void btnViewItemOnAction(ActionEvent actionEvent) {
+    public void btnViewItemOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/view_item_form.fxml"))));
+        stage.show();
     }
 
-    public void btnRemoveItemOnAction(ActionEvent actionEvent) {
-
+    public void btnRemoveItemOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/remove_item_form.fxml"))));
+        stage.show();
     }
 }

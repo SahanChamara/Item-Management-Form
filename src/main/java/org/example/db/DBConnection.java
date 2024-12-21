@@ -14,10 +14,10 @@ public class DBConnection {
     }
 
     public static DBConnection getInstance(){
-        return instance==null?new DBConnection():instance;
+        return instance==null?instance=new DBConnection():instance;
     }
 
-    public List getConnection(){
+    public List<Item> getConnection(){
         return itemList;
     }
 }
