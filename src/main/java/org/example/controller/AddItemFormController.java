@@ -2,6 +2,7 @@ package org.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,10 +33,17 @@ public class AddItemFormController implements Initializable {
             boolean isAdded = DBConnection.getInstance().getConnection().add(new Item(itemId, itemName, qty, price, description));
             System.out.println(new Item(itemId, itemName, qty, price, description));
             if (isAdded) {
-
-                System.out.println("item added Succesfull");
+                Alert addSucsess  = new Alert(Alert.AlertType.INFORMATION);
+                addSucsess.setTitle("Add Item Controller");
+                addSucsess.setHeaderText("Success");
+                addSucsess.setContentText("Item Added Successful");
+                addSucsess.show();
             } else {
-                System.out.println("item Not Add");
+                Alert notSucsess = new Alert(Alert.AlertType.INFORMATION);
+                notSucsess.setTitle("Add Item Controller");
+                notSucsess.setHeaderText("Failed");
+                notSucsess.setContentText("Item Added Failed");
+                notSucsess.show();
             }
 
             generateId();
