@@ -52,4 +52,6 @@ public class RemoveItemFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         loadTable();
     }
+
+
 }

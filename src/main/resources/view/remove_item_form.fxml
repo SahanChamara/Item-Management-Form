@@ -23,6 +23,6 @@
             <TableColumn fx:id="colDescription" prefWidth="152.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="262.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnDeletssseOnAction" prefHeight="25.0" prefWidth="87.0" text="Delete Item" />
+      <Button layoutX="262.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="87.0" text="Delete Item" />
    </children>
 </AnchorPane>
