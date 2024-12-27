@@ -1,4 +1,4 @@
-package org.example.controller;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -6,8 +6,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.example.db.DBConnection;
-import org.example.model.Item;
+import db.DBConnection;
+import model.Item;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,16 +22,16 @@ public class AddItemFormController implements Initializable {
 
     public void btnAddItemOnAction(ActionEvent actionEvent) {
         try {
-            String itemId = String.valueOf(itemIdCount++);
-            String itemName = txtItemName.getText();
-            Integer qty = Integer.parseInt(txtQty.getText());
-            Double price = Double.parseDouble(txtPrice.getText());
-            String description = txtDescription.getText();
+//            String itemId = String.valueOf(itemIdCount++);
+//            String itemName = txtItemName.getText();
+//            Integer qty = Integer.parseInt(txtQty.getText());
+//            Double price = Double.parseDouble(txtPrice.getText());
+//            String description = txtDescription.getText();
 
-            lblId.setText(itemId);
+            lblId.setText(String.valueOf(itemIdCount++));
 
-            boolean isAdded = DBConnection.getInstance().getConnection().add(new Item(itemId, itemName, qty, price, description));
-            System.out.println(new Item(itemId, itemName, qty, price, description));
+            boolean isAdded = DBConnection.getInstance().getConnection().add(new Item(String.valueOf(itemIdCount++), txtItemName.getText(), Integer.parseInt(txtQty.getText()), Double.parseDouble(txtPrice.getText()), txtDescription.getText()));
+
             if (isAdded) {
                 Alert addSucsess  = new Alert(Alert.AlertType.INFORMATION);
                 addSucsess.setTitle("Add Item Controller");
@@ -63,6 +63,6 @@ public class AddItemFormController implements Initializable {
     }
     private void generateId() {
         itemIdCount = DBConnection.getInstance().getConnection().size() + 1;
-        lblId.setText("ITM" + String.format("%04d", itemIdCount));
+        lblId.setText("D" + String.format("%03d", itemIdCount));
     }
 }
